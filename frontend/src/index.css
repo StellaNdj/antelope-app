@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Table component */
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+  border: 1px solid black;
+  border-radius: 5px;
+}
