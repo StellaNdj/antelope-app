@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Arial', 'Times New Roman', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,8 +8,62 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Arial', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Homepage */
+.homepage {
+  display: flex;;
+}
+
+.homepage-nav {
+  flex: 1;
+}
+
+.homepage-content {
+  flex: 3;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+
+/* Navbar component */
+.navbar {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 35vh;
+  border-right: 1px solid #dedede;
+  padding: 10px;
+}
+
+.nav-btns {
+  border-top: 1px solid #dedede;
+}
+
+.nav-btns > h3 {
+  font-weight: lighter;
+}
+
+.nav-btns > button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 0px;
+  margin: 10px 0;
+  cursor: pointer;
+  background-color: #a5c3e0;
+}
+
+
+
+.nav-btns > button:hover {
+  border: 1px solid black;
+}
+
+.nav-btns > button > a {
+  text-decoration: none;
+  color: black;
 }
 
 /* Table component */
@@ -17,9 +71,48 @@ code {
 .table-container {
   display: flex;
   justify-content: center;
+  margin: 20px auto;
+  height: 500px;
+  width: 710px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .table {
-  border: 1px solid black;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table > thead > tr > th {
+  padding: 10px;
+}
+
+.table > thead > tr {
+  background-color: #7daedf;
+  color: white;
+  text-align: center;
+}
+
+.table > tbody > tr:nth-child(odd) {
+  background-color: rgba(125, 174, 223, 0.3);
+}
+
+.table > tbody > tr > td {
+  padding: 10px;
+}
+
+/* Charts */
+
+.charts-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.chart-container {
+  width: 220px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }

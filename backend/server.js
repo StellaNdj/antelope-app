@@ -13,10 +13,8 @@ app.use(cors());
 app.get('/proxy', async (req, res) => {
   try {
     const response = await axios.get(url);
-    console.log(`Data received: ${response.data}`)
     res.send(response.data);
   } catch (error) {
-    console.log(`Error: ${error.toString()}`)
     res.status(500).send(error.toString());
   }
 })

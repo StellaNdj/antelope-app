@@ -1,8 +1,11 @@
-const Table = ({ antelopesData }) => {
+import DataContext from "../contexts/dataContext";
+import { useContext } from "react";
+
+const Table = () => {
+  const data = useContext(DataContext);
 
   return (
     <>
-      <h2>Antelope list</h2>
       <div className="table-container">
         <table className='table'>
           <thead>
@@ -16,7 +19,7 @@ const Table = ({ antelopesData }) => {
             </tr>
           </thead>
           <tbody>
-            {antelopesData.map((antelope, index) => (
+            {data && data.map((antelope, index) => (
               <tr key={index}>
                 <td>{antelope.name}</td>
                 <td>{antelope.continent}</td>

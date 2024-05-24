@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
-import axios from 'axios';
-import Table from "../components/Table";
+import Navbar from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 
 const Homepage = () => {
-  const [antelopes, setAntelopes] = useState();
 
-  useEffect(() => {
-    const fetchAntelope = async () => {
-      try {
-        const response = await axios.get('http://localhost:4000/proxy');
-        console.log(response.data)
-        setAntelopes(response.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchAntelope();
-  }, [])
   return (
-    <>
-      <h1>Antelopes</h1>
-      {antelopes && <Table antelopesData={antelopes}></Table>}
-    </>
+    <div className="homepage">
+      <div className="homepage-nav">
+        <Navbar></Navbar>
+      </div>
+      <div className="homepage-content">
+        <Outlet/>
+      </div>
+    </div>
   )
 }
 
