@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import DataContext from "../contexts/dataContext";
 import PieChart from "./PieChart";
-import BarChart from "./BarChart";
+import SelectableChart from "./SelectableChart";
 
 const Charts = () => {
   const data = useContext(DataContext);
@@ -23,9 +23,6 @@ const Charts = () => {
   const hornsLabels = Object.keys(hornsCount);
   const hornsData = Object.values(hornsCount);
 
-  const heightLabels = data.map((item) => item.name);
-  const heightData = data.map((item) => item.height);
-
   return (
     <>
       <h2>Charts</h2>
@@ -43,22 +40,7 @@ const Charts = () => {
             <PieChart
               data={hornsData}
               labels={hornsLabels}
-              title='Number of horns by types'
-              colors={[
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(240, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(160, 100, 235, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-              ]} />}
-        </div>
-        <div className="chart-container">
-          {data &&
-            <BarChart
-              data={heightData}
-              labels={heightLabels}
-              title='Height by antelope'
+              title='Number of antelopes by horns types'
               colors={[
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -69,6 +51,7 @@ const Charts = () => {
               ]} />}
         </div>
       </div>
+      <SelectableChart data={data}></SelectableChart>
     </>
   )
 }
