@@ -19,9 +19,9 @@ const PieChart = ({ data, labels, title, colors }) => {
   };
 
   return (
-    <div width={400} height={400}>
+    <div>
       <h4>{title}</h4>
-      <Pie data={chartData} width={400} height={400}></Pie>
+      <Pie data={chartData}></Pie>
     </div>
   )
 }

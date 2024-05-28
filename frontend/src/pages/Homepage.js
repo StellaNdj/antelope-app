@@ -9,6 +9,7 @@ const Homepage = () => {
         <Navbar></Navbar>
       </div>
       <div className="homepage-content">
+        <h1 className="homepage-title">Antelopes Web App</h1>
         <Outlet/>
       </div>
     </div>

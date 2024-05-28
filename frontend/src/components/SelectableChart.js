@@ -10,7 +10,6 @@ const SelectableChart = ({ data }) => {
   }
 
   const handleRegion = (e) => {
-    console.log(e.target.value);
     setSelectedRegion(e.target.value);
   }
 
@@ -26,12 +25,14 @@ const SelectableChart = ({ data }) => {
 
   return (
     <div>
-      <div>
+      {/* Dynamically render a bar chart with either height or weight */}
+      <div className="filters">
         <label>Select data to display: </label>
         <select value={selectedOption} onChange={handleChange}>
           <option value="height">Height</option>
           <option value="weight">Weight</option>
         </select>
+        {/* For my infos on specific region, filtering the data by continent */}
         <label>Filter by region:</label>
         <select value={selectedRegion} onChange={handleRegion}>
           <option value="All">All</option>

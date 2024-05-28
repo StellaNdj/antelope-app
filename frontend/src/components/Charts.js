@@ -6,20 +6,23 @@ import SelectableChart from "./SelectableChart";
 const Charts = () => {
   const data = useContext(DataContext);
 
+  // Count the number of continents
   const continentCount = data.reduce((acc, item) => {
     acc[item.continent] = (acc[item.continent] || 0) + 1;
     return acc;
   }, {})
 
+  // Count the numbers of different horns
   const hornsCount = data.reduce((acc, item) => {
     acc[item.horns] = (acc[item.horns] || 0) + 1;
     return acc;
   }, {})
 
-
+  // Determine the name of the continent and their values
   const continentsLabels = Object.keys(continentCount);
   const continentsData = Object.values(continentCount);
 
+  // Determine the horns name and their values
   const hornsLabels = Object.keys(hornsCount);
   const hornsData = Object.values(hornsCount);
 
@@ -32,26 +35,28 @@ const Charts = () => {
             <PieChart
               data={continentsData}
               labels={continentsLabels}
-              title='Number of antelopes by region'
-              colors={['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)']} />}
+              title='Antelopes by continents'
+              colors={['rgba(54, 162, 235, 0.2)', 'rgba(54, 162, 235, 0.5)']} />}
         </div>
         <div className="chart-container">
           {data &&
             <PieChart
               data={hornsData}
               labels={hornsLabels}
-              title='Number of antelopes by horns types'
+              title='Antelopes by horns types'
               colors={[
-                'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
-                'rgba(240, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(160, 100, 235, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.1)',
+                'rgba(54, 162, 235, 0.3)',
+                'rgba(54, 162, 235, 0.4)',
+                'rgba(54, 162, 235, 0.8)'
               ]} />}
         </div>
       </div>
-      <SelectableChart data={data}></SelectableChart>
+      <div className="charts-container">
+        <SelectableChart data={data}></SelectableChart>
+      </div>
     </>
   )
 }
